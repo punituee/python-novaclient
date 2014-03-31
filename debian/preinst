@@ -1,0 +1,16 @@
+#!/bin/sh -e
+
+if [ "$1" = "upgrade" ] ; then
+  if [ -n "$2" ] && dpkg --compare-versions "$2" lt 1:2.13.0-0ubuntu2; then
+    # Remove broken symlink that was released with raring. (LP: #1172420)
+    if [ -L /etc/bash_completion.d/nova.bash_completion ] &&
+       [ "`readlink /etc/bash_completion.d/nova.bash_completion`" =\
+         "/usr/share/doc/python-novaclient/nova.bash_completion" ]; then
+      rm -rf /etc/bash_completion.d/nova.bash_completion
+   fi
+  fi
+fi
+
+#DEBHELPER#
+
+exit 0

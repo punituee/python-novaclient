@@ -1,0 +1,42 @@
+Source: python-novaclient
+Section: python
+Priority: optional
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Build-Depends: debhelper (>= 7.0.50),
+               python-all (>= 2.6),
+               python-babel (>= 0.9.6),
+               python-d2to1,
+               python-distribute,
+               python-fixtures (>= 0.3.12),
+               python-keyring,
+               python-iso8601,
+               python-mock (>= 0.7),
+               python-pbr (>= 0.5.21),
+               python-prettytable (>= 0.6),
+               python-requests (>= 1.1),
+               python-setuptools,
+               python-six,
+               python-simplejson (>= 2.0.9),
+               python-testtools (>= 0.9.32),
+               testrepository (>= 0.0.17)
+X-Python-Version: >= 2.7
+Standards-Version: 3.9.3
+Vcs-Browser: http://bazaar.launchpad.net/~ubuntu-server-dev/python-novaclient/havana/files
+Vcs-Bzr: https://code.launchpad.net/~ubuntu-server-dev/python-novaclient/havana
+XS-Testsuite: autopkgtest
+
+Package: python-novaclient
+Architecture: all
+Depends: python-iso8601,
+         python-pkg-resources,
+         python-prettytable (>= 0.6),
+         python-requests (>= 1.1),
+         python-simplejson (>= 2.0.9),
+         python-six,
+         python-babel (>= 0.9.6),
+         ${misc:Depends},
+         ${python:Depends}
+XB-Python-Version: ${python:Versions}
+Description: client library for OpenStack Compute API
+ Python novaclient library and nova CLI tool for interacting with OpenStack
+ Compute (Nova) through the OpenStack Compute API.
