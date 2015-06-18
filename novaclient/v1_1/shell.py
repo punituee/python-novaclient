@@ -3395,7 +3395,8 @@ _quota_resources = ['instances', 'cores', 'ram',
                     'injected_files', 'injected_file_content_bytes',
                     'injected_file_path_bytes', 'key_pairs',
                     'security_groups', 'security_group_rules',
-                    'server_groups', 'server_group_members']
+                    'server_groups', 'server_group_members',
+                     'volumes_per_instance']
 
 
 def _quota_show(quotas):
@@ -3550,6 +3551,11 @@ def do_quota_defaults(cs, args):
     type=int,
     default=None,
     help=_('New value for the "server-group-members" quota.'))
+@utils.arg('--volumes-per-instance',
+    metavar='<volumes-per-instance>',
+    type=int,
+    default=None,
+    help=_('New value for the "volumes_per_instance" quota.'))
 @utils.arg('--force',
     dest='force',
     action="store_true",
@@ -3668,6 +3674,11 @@ def do_quota_class_show(cs, args):
     type=int,
     default=None,
     help=_('New value for the "server-group-members" quota.'))
+@utils.arg('--volumes-per-instance',
+    metavar='<volumes-per-instance>',
+    type=int,
+    default=None,
+    help=_('New value for the "volumes_per_instance" quota.'))
 def do_quota_class_update(cs, args):
     """Update the quotas for a quota class."""
 
